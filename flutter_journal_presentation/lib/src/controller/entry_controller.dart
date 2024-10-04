@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:dart_journal_domain/dart_journal_domain.dart';
 import 'package:flutter_journal_presentation/flutter_journal_presentation.dart';
-import 'package:uuid/uuid.dart';
 
 class EntryController {
   EntryController({
@@ -18,7 +17,10 @@ class EntryController {
       _entriesStreamController.stream;
 
   void create(NewEntry newEntry) async {
-    final entry = Entry.fromNewEntry(newEntry, uuid: const Uuid().v1());
+    final entry = Entry.fromNewEntry(
+      newEntry,
+      id: DateTime.now().millisecondsSinceEpoch,
+    );
     await _repository.create(entry);
     getAll();
   }

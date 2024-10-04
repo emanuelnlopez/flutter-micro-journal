@@ -1,18 +1,17 @@
 import 'package:dart_journal_domain/dart_journal_domain.dart';
-import 'package:flutter_journal_presentation/flutter_journal_presentation.dart';
 
 class PresentationEntry extends Entry {
   PresentationEntry({
     super.tags,
     required super.text,
-    required super.uuid,
+    required super.id,
   });
 
   factory PresentationEntry.fromEntry(Entry entry) => PresentationEntry(
         tags: entry.tags,
         text: entry.text,
-        uuid: entry.uuid,
+        id: entry.id,
       );
 
-  DateTime get dateTime => DateTimeUtils.uuidToDateTime(uuid);
+  DateTime get dateTime => DateTime.fromMillisecondsSinceEpoch(id);
 }

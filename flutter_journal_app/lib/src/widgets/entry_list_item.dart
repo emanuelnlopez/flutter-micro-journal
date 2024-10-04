@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_journal_app/src/ui/ui.dart';
+import 'package:flutter_journal_app/src/utils/utils.dart';
 import 'package:flutter_journal_presentation/flutter_journal_presentation.dart';
 
 class EntryListItem extends StatelessWidget {
@@ -31,8 +32,9 @@ class EntryListItem extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Text(
-              DateTimeUtils.geDateFormat(DateTimeUtils.fullDateTimeFormat)
-                  .format(entry.dateTime),
+              DateTimeUtils.geDateFormat(
+                DateTimeUtils.fullDateTimeFormat,
+              ).format(entry.dateTime),
               textAlign: TextAlign.right,
             ),
           ),

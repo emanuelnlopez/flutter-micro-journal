@@ -4,18 +4,18 @@ class Entry extends NewEntry {
   Entry({
     super.tags,
     required super.text,
-    required this.uuid,
+    required this.id,
   });
 
   factory Entry.fromNewEntry(
     NewEntry newEntry, {
-    required String uuid,
+    required int id,
   }) =>
       Entry(
         tags: newEntry.tags,
         text: newEntry.text,
-        uuid: uuid,
+        id: id,
       );
 
-  final String uuid;
+  final int id;
 }

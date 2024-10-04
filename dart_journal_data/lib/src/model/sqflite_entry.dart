@@ -4,7 +4,7 @@ class SqfliteEntry extends Entry {
   SqfliteEntry({
     super.tags,
     required super.text,
-    required super.uuid,
+    required super.id,
   });
 
   static List<SqfliteEntry> fromMapList(List<Map<String, dynamic>> maps) {
@@ -20,7 +20,7 @@ class SqfliteEntry extends Entry {
   factory SqfliteEntry.fromEntry(Entry entry) => SqfliteEntry(
         tags: entry.tags,
         text: entry.text,
-        uuid: entry.uuid,
+        id: entry.id,
       );
 
   factory SqfliteEntry.fromMap(Map<String, dynamic> map) => SqfliteEntry(
@@ -28,13 +28,13 @@ class SqfliteEntry extends Entry {
             ? map[SqfliteEntryKeys.tags].split(', ')
             : [],
         text: map[SqfliteEntryKeys.text],
-        uuid: map[SqfliteEntryKeys.uuid],
+        id: map[SqfliteEntryKeys.id],
       );
 
   Map<String, dynamic> toMap() => {
         SqfliteEntryKeys.tags: tags.join(', '),
         SqfliteEntryKeys.text: text,
-        SqfliteEntryKeys.uuid: uuid,
+        SqfliteEntryKeys.id: id,
       };
 }
 
@@ -42,5 +42,5 @@ abstract class SqfliteEntryKeys {
   static final tableName = 'entries';
   static final tags = 'tags';
   static final text = 'content';
-  static final uuid = 'uuid';
+  static final id = 'id';
 }

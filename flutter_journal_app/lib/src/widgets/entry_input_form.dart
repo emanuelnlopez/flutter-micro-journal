@@ -1,6 +1,7 @@
 import 'package:dart_journal_domain/dart_journal_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_journal_app/l10n/l10n_gen/app_localizations.dart';
+import 'package:flutter_journal_app/src/utils/utils.dart';
 import 'package:flutter_journal_presentation/flutter_journal_presentation.dart';
 import 'package:provider/provider.dart';
 

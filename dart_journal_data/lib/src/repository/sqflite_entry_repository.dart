@@ -1,14 +1,10 @@
-import 'dart:io';
-
 import 'package:dart_journal_data/dart_journal_data.dart';
 import 'package:dart_journal_domain/dart_journal_domain.dart';
-import 'package:logging/logging.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SqfliteEntryRepository implements EntryRepository {
   late final Database _database;
-  final _logger = Logger('SqfliteEntryRepository');
 
   Future<void> initialize() async {
     // _logger.finest('Getting file reference...');
@@ -32,7 +28,7 @@ class SqfliteEntryRepository implements EntryRepository {
     _database = await openDatabase(
       join(await getDatabasesPath(), 'entries_database.db'),
       onCreate: (db, version) => db.execute(
-        'CREATE TABLE entries (uuid TEXT PRIMARY KEY, content TEXT NOT NULL, tags TEXT NOT NULL);',
+        'CREATE TABLE entries (id INTEGER PRIMARY KEY, content TEXT NOT NULL, tags TEXT NOT NULL);',
       ),
       version: 1,
     );
@@ -48,8 +44,8 @@ class SqfliteEntryRepository implements EntryRepository {
   Future<void> delete(Entry entry) async {
     await _database.delete(
       SqfliteEntryKeys.tableName,
-      where: '${SqfliteEntryKeys.uuid} = ?',
-      whereArgs: [entry.uuid],
+      where: '${SqfliteEntryKeys.id} = ?',
+      whereArgs: [entry.id],
     );
   }
 
@@ -66,8 +62,8 @@ class SqfliteEntryRepository implements EntryRepository {
     await _database.update(
       SqfliteEntryKeys.tableName,
       dbEntry.toMap(),
-      where: '${SqfliteEntryKeys.uuid} = ?',
-      whereArgs: [entry.uuid],
+      where: '${SqfliteEntryKeys.id} = ?',
+      whereArgs: [entry.id],
     );
   }
 }
