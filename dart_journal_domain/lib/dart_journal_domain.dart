@@ -1,8 +1,3 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
-library;
-
-export 'src/dart_journal_domain_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/model/new_entry.dart';
+export 'src/model/entry.dart';
+export 'src/repository/entry_repository.dart';
