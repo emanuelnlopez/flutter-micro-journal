@@ -1,3 +1,3 @@
 # flutter_journal_app
 
-A new Flutter project.
+Micro journaling app developed with dart/flutter
