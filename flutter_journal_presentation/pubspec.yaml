@@ -11,8 +11,12 @@ environment:
 dependencies:
   dart_journal_data:
     path: ../dart_journal_data
+  dart_journal_domain:
+    path: ../dart_journal_domain
   flutter:
     sdk: flutter
+  intl: ^0.19.0
+  uuid: ^4.5.1
 
 dev_dependencies:
   flutter_test:
