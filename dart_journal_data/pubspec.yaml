@@ -1,14 +1,17 @@
 name: dart_journal_data
-description: A starting point for Dart libraries or applications.
+description: Data layer of the Flutter journaling app.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+publish_to: none
 
 environment:
   sdk: ^3.4.4
 
-# Add regular dependencies here.
 dependencies:
-  # path: ^1.8.0
+   dart_journal_domain:
+    path: ../dart_journal_domain
+   logging: ^1.2.0
+   path: ^1.9.0
+   sqflite: ^2.3.3+1
 
 dev_dependencies:
   lints: ^3.0.0
